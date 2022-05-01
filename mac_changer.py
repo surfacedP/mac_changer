@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import subprocess
 import click
 import re
@@ -9,16 +7,17 @@ import re
 @click.option(
     "-i",
     "--interface",
-    prompt="Input Interface:",
+    prompt="Input Interface",
     help="Interface to change MAC address for",
 )
 @click.option(
     "-m",
     "--mac",
-    prompt="Input MAC address:",
+    prompt="Input MAC address",
     help="MAC address to change to for Interface",
 )
 def begin(interface, mac):
+    print("Old MAC:")
     get_mac(interface)
     change_mac(interface, mac)
 
@@ -39,6 +38,7 @@ def change_mac(interface, new_mac):
     subprocess.call(["ifconfig", interface, "down"])
     subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
     subprocess.call(["ifconfig", interface, "up"])
+    print("New MAC:")
     get_mac(interface)
 
 
