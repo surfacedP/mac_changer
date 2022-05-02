@@ -7,7 +7,7 @@ For use with Linux.
 Install the requirements and run.
 ```
 pip install -r requirements.txt
-sudo mac_changer.py
+sudo python3 mac_changer.py
 ```
 You can specify the interface and MAC address when running, otherwise you will be prompted to enter when the program is run.
 
